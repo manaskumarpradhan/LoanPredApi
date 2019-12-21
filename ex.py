@@ -18,7 +18,9 @@ def predict():
     #creating a json file
     payload = [{"Home":home,"Age":int(age),"Income":int(income),"Experience":int(experience)}]
     #sending request to restAPI
-    r = requests.post('http://127.0.0.1:5000/predict', json=payload)
+    #r = requests.post('http://127.0.0.1:5000/predict', json=payload)
+    #below is a rest API hosted in heroku server
+    r = requests.post('https://loan-approval-prediction-api.herokuapp.com/predict', json=payload)
     pred = int(json.loads(r.content)['prediction'][1])
     if pred  == 1:
         msg = "Congrats! You are eligible for a loan"

@@ -14,7 +14,8 @@ import json
 
 #payload = [{"Home":"a","Age":32,"Income":150,"Experience":12}] #loan Approved
 payload = [{"Home":"a","Age":30,"Income":148,"Experience":12}] #loan not Approved
-r = requests.post('http://127.0.0.1:5000/predict', json=payload)
+#r = requests.post('http://127.0.0.1:5000/predict', json=payload)
+r = requests.post('https://loan-approval-prediction-api.herokuapp.com/predict', json=payload)
 print(r.status_code)
 print(r.content)
 print(type(r.content))
